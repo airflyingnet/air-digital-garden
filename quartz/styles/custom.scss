@@ -24,6 +24,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--headerFont);
 }
 
+// File links are smaller and lighter than folder titles
+.explorer-content ul li > a {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
 // ─── Border Radius ────────────────────────────────────────────────────────────
 // Rounded 25px+ for cards, 12px for interactive surfaces, 4px for subtle
 .popover > .popover-inner {
