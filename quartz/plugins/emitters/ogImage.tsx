@@ -70,7 +70,7 @@ async function processOgImage(
   fileData: QuartzPluginData,
   fonts: SatoriOptions["fonts"],
   fullOptions: SocialImageOptions,
-) {
+): Promise<Awaited<ReturnType<typeof write>> | null> {
   const cfg = ctx.cfg.configuration
   const slug = fileData.slug!
   const titleSuffix = cfg.pageTitleSuffix ?? ""
@@ -81,23 +81,30 @@ async function processOgImage(
     fileData.frontmatter?.description ??
     unescapeHTML(fileData.description?.trim() ?? i18n(cfg.locale).propertyDefaults.description)
 
-  const stream = await generateSocialImage(
-    {
-      title,
-      description,
-      fonts,
-      cfg,
-      fileData,
-    },
-    fullOptions,
-  )
+  try {
+    const stream = await generateSocialImage(
+      {
+        title,
+        description,
+        fonts,
+        cfg,
+        fileData,
+      },
+      fullOptions,
+    )
 
-  return write({
-    ctx,
-    content: stream,
-    slug: `${slug}-og-image` as FullSlug,
-    ext: ".webp",
-  })
+    return write({
+      ctx,
+      content: stream,
+      slug: `${slug}-og-image` as FullSlug,
+      ext: ".webp",
+    })
+  } catch (err) {
+    console.warn(
+      styleText("yellow", `\nWarning: skipping OG image for "${slug}": ${(err as Error).message}`),
+    )
+    return null
+  }
 }
 
 export const CustomOgImagesEmitterName = "CustomOgImages"
@@ -117,7 +124,8 @@ export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = 
 
       for (const [_tree, vfile] of content) {
         if (vfile.data.frontmatter?.socialImage !== undefined) continue
-        yield processOgImage(ctx, vfile.data, fonts, fullOptions)
+        const file = await processOgImage(ctx, vfile.data, fonts, fullOptions)
+        if (file !== null) yield file
       }
     },
     async *partialEmit(ctx, _content, _resources, changeEvents) {
@@ -131,7 +139,8 @@ export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = 
         if (!changeEvent.file) continue
         if (changeEvent.file.data.frontmatter?.socialImage !== undefined) continue
         if (changeEvent.type === "add" || changeEvent.type === "change") {
-          yield processOgImage(ctx, changeEvent.file.data, fonts, fullOptions)
+          const file = await processOgImage(ctx, changeEvent.file.data, fonts, fullOptions)
+          if (file !== null) yield file
         }
       }
     },
