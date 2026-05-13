@@ -1,7 +1,18 @@
 @use "./base.scss";
 
+// ─── Custom font: x12y12pxMaruMinyaHangul (pixel Korean) ──────────────────────
+// Loaded via jsDelivr CDN from https://github.com/quiple/x12y12pxMaruMinyaHangul
+@font-face {
+  font-family: "x12y12pxMaruMinyaHangul";
+  src: url("https://cdn.jsdelivr.net/gh/quiple/x12y12pxMaruMinyaHangul@main/fonts/x12y12pxMaruMinyaHangul.woff2") format("woff2"),
+       url("https://cdn.jsdelivr.net/gh/quiple/x12y12pxMaruMinyaHangul@main/fonts/x12y12pxMaruMinyaHangul.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 // ─── Typography ───────────────────────────────────────────────────────────────
-// Heading weight 400 matches the brand's typographic voice
+// Single-weight pixel font — force weight 400 on all headings
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
