@@ -50,6 +50,9 @@ export default (() => {
             )}
           </>
         )}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@main/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@main/packages/wanted-sans-std/fonts/webfonts/variable/split/WantedSansStdVariable.css" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

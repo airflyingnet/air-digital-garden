@@ -1,10 +1,5 @@
 @use "./base.scss";
 
-// ─── Custom fonts: Wanted Sans Variable / Wanted Sans Std Variable ────────────
-// Loaded via jsDelivr CDN — split subset CSS handles 92 unicode-range files
-@import url("https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@main/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.css");
-@import url("https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@main/packages/wanted-sans-std/fonts/webfonts/variable/split/WantedSansStdVariable.css");
-
 // ─── Custom font: x12y12pxMaruMinyaHangul (pixel Korean) ──────────────────────
 // Loaded via jsDelivr CDN from https://github.com/quiple/x12y12pxMaruMinyaHangul
 @font-face {
