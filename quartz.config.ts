@@ -24,8 +24,8 @@ const config: QuartzConfig = {
       cdnCaching: true,
       typography: {
         header: "x12y12pxMaruMinyaHangul",
-        body: "Geist",
-        code: "Geist Mono",
+        body: "Wanted Sans Variable",
+        code: "Wanted Sans Std Variable",
       },
       colors: {
         lightMode: {
