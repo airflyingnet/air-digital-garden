@@ -17,6 +17,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+// ─── Explorer ─────────────────────────────────────────────────────────────────
+// All text inside the explorer (titles, folder names, file links) uses pixel font
+.explorer,
+.explorer-content {
+  font-family: var(--headerFont);
+}
+
 // ─── Border Radius ────────────────────────────────────────────────────────────
 // Rounded 25px+ for cards, 12px for interactive surfaces, 4px for subtle
 .popover > .popover-inner {
