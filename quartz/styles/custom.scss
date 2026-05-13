@@ -79,8 +79,8 @@ a.internal.tag-link {
 
 // ─── Sidebar panels ───────────────────────────────────────────────────────────
 // Transparent background, no radius — separated by bottom border lines
-.sidebar.left > *,
-.sidebar.right > * {
+.sidebar.left > *:not(.page-title):not(.spacer):not(.flex-component),
+.sidebar.right > *:not(.page-title):not(.spacer):not(.flex-component) {
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--lightgray);
