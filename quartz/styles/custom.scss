@@ -78,13 +78,19 @@ a.internal.tag-link {
 }
 
 // ─── Sidebar panels ───────────────────────────────────────────────────────────
-// Subtle card treatment for sidebar sections
+// Transparent background, no radius — separated by bottom border lines
 .sidebar.left > *,
 .sidebar.right > * {
-  border: 1px solid var(--lightgray);
-  border-radius: 12px;
-  padding: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--lightgray);
+  border-radius: 0;
+  padding: 1rem 0;
   box-sizing: border-box;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 // ─── Blockquote ───────────────────────────────────────────────────────────────
@@ -110,11 +116,3 @@ a.internal:not(.tag-link) {
   border-radius: 4px;
 }
 
-// ─── Dark mode depth: faint card surface on sidebar ──────────────────────────
-@media (prefers-color-scheme: dark) {
-  .sidebar.left > *,
-  .sidebar.right > * {
-    background: var(--lightgray);
-    border-color: transparent;
-  }
-}
