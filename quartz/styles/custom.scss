@@ -1,3 +1,96 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// ─── Typography ───────────────────────────────────────────────────────────────
+// Heading weight 400 matches the brand's typographic voice
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+// ─── Border Radius ────────────────────────────────────────────────────────────
+// Rounded 25px+ for cards, 12px for interactive surfaces, 4px for subtle
+.popover > .popover-inner {
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 28px 0px;
+}
+
+.search > .search-container > .search-space {
+  & > * {
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 28px 0px;
+  }
+  & > input {
+    border-radius: 12px 12px 0 0;
+  }
+  & > .search-layout {
+    border-radius: 0 0 12px 12px;
+  }
+}
+
+pre {
+  border-radius: 12px;
+}
+
+code {
+  border-radius: 4px;
+}
+
+img {
+  border-radius: 12px;
+}
+
+// ─── Tags ─────────────────────────────────────────────────────────────────────
+// Pill-style colorful tags
+a.internal.tag-link {
+  border-radius: 9999px;
+  padding: 1px 10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  background-color: var(--highlight);
+  border: 1px solid color-mix(in srgb, var(--secondary) 40%, transparent);
+
+  &::before {
+    content: "#";
+  }
+}
+
+// ─── Sidebar panels ───────────────────────────────────────────────────────────
+// Subtle card treatment for sidebar sections
+.sidebar.left > *,
+.sidebar.right > * {
+  border: 1px solid var(--lightgray);
+  border-radius: 12px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+// ─── Blockquote ───────────────────────────────────────────────────────────────
+blockquote {
+  border-left-color: var(--secondary);
+  border-radius: 0 4px 4px 0;
+  background: var(--highlight);
+}
+
+// ─── Buttons / Search trigger ─────────────────────────────────────────────────
+.search > .search-button {
+  border-radius: 6px;
+}
+
+// ─── Navigation progress bar ──────────────────────────────────────────────────
+.navigation-progress {
+  background: var(--secondary);
+  height: 2px;
+}
+
+// ─── Internal links ───────────────────────────────────────────────────────────
+a.internal:not(.tag-link) {
+  border-radius: 4px;
+}
+
+// ─── Dark mode depth: faint card surface on sidebar ──────────────────────────
+@media (prefers-color-scheme: dark) {
+  .sidebar.left > *,
+  .sidebar.right > * {
+    background: var(--lightgray);
+    border-color: transparent;
+  }
+}
