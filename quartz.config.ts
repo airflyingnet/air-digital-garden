@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian", "air","categories","attachments", "ao-bento/templates",  "ao-bento/cycles"],
+    ignorePatterns: ["private", "templates", ".obsidian", "air","categories","attachments", "ao-bento/templates",  "ao-bento/cycles", "wiki"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
