@@ -7,6 +7,12 @@ tsconfig.tsbuildinfo
 .obsidian
 .quartz-cache
 private/
+content/attachments/
+content/ao-bento/
+content/wiki/
+content/air/
+content/categories/
+content/templates/
 .replit
 replit.nix
 /.claude
